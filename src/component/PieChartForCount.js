@@ -13,9 +13,15 @@ export default function PieChartForCount(){
 
     const [datasetstatus, setDataSetStatus] = useState(false);
 
-    const menuData = [{totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}]
+    const [data,setData] = useState([
+        {totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}
+    ]);
 
-    console.log(menuData)
+    const dataNew = [{totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}]
+
+    const menuData = data;
+
+    console.log(data)
 
  
     useEffect(() => {
@@ -53,7 +59,7 @@ export default function PieChartForCount(){
             setPieChartData(data);
             setDataSetStatus(true);
         }
-    }, []);
+    }, [menuData]);
      
     return(
         <div> <Card className=" rounded p-2 md:m-0 md:m-5 md:mr-0 md:ml-0  mb-2 w-300 rounded md:mt-12">

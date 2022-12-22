@@ -9,21 +9,21 @@ import Card from '@material-ui/core/Card';
 
 function BarChartForCount() {
 
-    const menuData = [
+    const [data,setData] = useState([
         {
-        totalCount:22,girlCount:13,boysCount:7,standardName:"1st Std",totalCountInWords:22,girlsCountInWords:13,boysCountInWords:7
-        },
-        {
-        totalCount:15,girlCount:7,boysCount:8,standardName:"2st Std",totalCountInWords:15,girlsCountInWords:7,boysCountInWords:8
-        },
-        {
-        totalCount:16,girlCount:10,boysCount:5,standardName:"3st std",totalCountInWords:16,girlsCountInWords:10,boysCountInWords:5
-        },
-        {
-        totalCount:1,girlCount:0,boysCount:1,standardName:"4st std",totalCountInWords:0,girlsCountInWords:1,boysCountInWords:0
-        },
-]
-
+            totalCount:22,girlCount:13,boysCount:7,standardName:"1st Std",totalCountInWords:22,girlsCountInWords:13,boysCountInWords:7
+            },
+            {
+            totalCount:15,girlCount:7,boysCount:8,standardName:"2st Std",totalCountInWords:15,girlsCountInWords:7,boysCountInWords:8
+            },
+            {
+            totalCount:16,girlCount:10,boysCount:5,standardName:"3st std",totalCountInWords:16,girlsCountInWords:10,boysCountInWords:5
+            },
+            {
+            totalCount:1,girlCount:0,boysCount:1,standardName:"4st std",totalCountInWords:0,girlsCountInWords:1,boysCountInWords:0
+            },
+    ])
+    const menuData = data;
 
     const [bartData, setBarData] = useState({
         options: {},
