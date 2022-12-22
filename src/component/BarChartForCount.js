@@ -3,15 +3,13 @@ import Typography from "@material-ui/core/Typography";
 import Chart from 'react-apexcharts';
 import _ from 'lodash';
 import Card from '@material-ui/core/Card';
-import axios from 'axios';
+
 
 
 
 function BarChartForCount() {
 
-    const [data,setData] = useState('')
-
-    const newData = [
+    const menuData = [
         {
         totalCount:22,girlCount:13,boysCount:7,standardName:"1st Std",totalCountInWords:22,girlsCountInWords:13,boysCountInWords:7
         },
@@ -25,11 +23,6 @@ function BarChartForCount() {
         totalCount:1,girlCount:0,boysCount:1,standardName:"4st std",totalCountInWords:0,girlsCountInWords:1,boysCountInWords:0
         },
 ]
-
-
-
-const menuData = newData;
-
 
 
     const [bartData, setBarData] = useState({

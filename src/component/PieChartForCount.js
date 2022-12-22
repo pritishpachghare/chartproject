@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react"
-import axios from 'axios';
 import _ from 'lodash';
 import Typography from '@material-ui/core/Typography';
 import Chart from 'react-apexcharts';
@@ -13,10 +12,6 @@ export default function PieChartForCount(){
     });
 
     const [datasetstatus, setDataSetStatus] = useState(false);
-
-    const [data,setData] = useState('')
-
-    console.log("data",data.responseList)
 
     const menuData = [{totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}]
 
