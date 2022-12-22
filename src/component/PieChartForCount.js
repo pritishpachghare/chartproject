@@ -13,11 +13,10 @@ export default function PieChartForCount(){
 
     const [datasetstatus, setDataSetStatus] = useState(false);
 
-    const [data,setData] = useState([
+    const [data] = useState([
         {totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}
     ]);
 
-    const dataNew = [{totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}]
 
     const menuData = data;
 
