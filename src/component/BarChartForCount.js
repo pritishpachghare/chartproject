@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 
 function BarChartForCount() {
 
-    const [data,setData] = useState([
+    const [data] = useState([
         {
             totalCount:22,girlCount:13,boysCount:7,standardName:"1st Std",totalCountInWords:22,girlsCountInWords:13,boysCountInWords:7
             },
@@ -94,7 +94,7 @@ function BarChartForCount() {
                 setBarData({ options: tempOptions, series : tempSeries });
             }
         }
-    }, []);
+    }, [menuData]);
 
 	return (
        
