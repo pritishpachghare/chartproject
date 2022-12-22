@@ -11,23 +11,26 @@ function BarChartForCount() {
 
     const [data,setData] = useState('')
 
-    console.log("data",data.responseList)
+    const newData = [
+        {
+        totalCount:22,girlCount:13,boysCount:7,standardName:"1st Std",totalCountInWords:22,girlsCountInWords:13,boysCountInWords:7
+        },
+        {
+        totalCount:15,girlCount:7,boysCount:8,standardName:"2st Std",totalCountInWords:15,girlsCountInWords:7,boysCountInWords:8
+        },
+        {
+        totalCount:16,girlCount:10,boysCount:5,standardName:"3st std",totalCountInWords:16,girlsCountInWords:10,boysCountInWords:5
+        },
+        {
+        totalCount:1,girlCount:0,boysCount:1,standardName:"4st std",totalCountInWords:0,girlsCountInWords:1,boysCountInWords:0
+        },
+]
 
-    const menuData = data.responseList?.[1]?.standardwiseStudentList
 
 
-    async function fetchData() {
-        try {
-          const response = await axios.get("http://3.109.35.243:8088/StandardWiseStrength?schoolId=1059000001&profileRole=Principal&yearId=1059000006&renewAdmissionDate=21-12-2022")
-          setData(response.data)
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    
-      useEffect(()=>{
-        fetchData()
-      },[])
+const menuData = newData;
+
+
 
     const [bartData, setBarData] = useState({
         options: {},
@@ -85,10 +88,8 @@ function BarChartForCount() {
                     fill: {
                         opacity: 2
                     },
-                    colors: ['#3d85c6'], //'#f5a623' , '#50af51', '#EB504E','#f5a623'
-                    fill: {
-                        colors: ['#3d85c6'] //'#f5a623'
-                    },
+                    colors: ['#3d85c6'],
+                    
                     tooltip: {
                         y: {
                             formatter: function (val) {
@@ -100,7 +101,7 @@ function BarChartForCount() {
                 setBarData({ options: tempOptions, series : tempSeries });
             }
         }
-    }, [menuData]);
+    }, []);
 
 	return (
        

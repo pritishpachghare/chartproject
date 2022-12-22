@@ -18,24 +18,13 @@ export default function PieChartForCount(){
 
     console.log("data",data.responseList)
 
-    const menuData = data.responseList?.[0]
+    const menuData = [{totalCount:226,girlsCount:109,boysCount:117,totalCountInWords:'226',girlsCountInWords:'109',boysCountInWords:'117'}]
 
-    async function fetchData() {
-        try {
-          const response = await axios.get("http://3.109.35.243:8088/StandardWiseStrength?schoolId=1059000001&profileRole=Principal&yearId=1059000006&renewAdmissionDate=21-12-2022")
-          setData(response.data)
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    
-      useEffect(()=>{
-        fetchData()
-      },[])
+    console.log(menuData)
 
-      
+ 
     useEffect(() => {
-        if (menuData !== undefined && !_.isEmpty(menuData)) {
+        if (menuData[0] !== undefined && !_.isEmpty(menuData[0])) {
             let data = {
                 options: {
                     labels: ['Total', 'Boys', 'Girls'],
@@ -51,8 +40,8 @@ export default function PieChartForCount(){
                         custom: function ({ series, seriesIndex }) {
                             let return_value =
                                 seriesIndex === 0
-                                    ? `Boys: ${menuData.boysCount}`
-                                    : `Girls: ${menuData.girlsCount}`;
+                                    ? `Boys: ${menuData[0].boysCount}`
+                                    : `Girls: ${menuData[0].girlsCount}`;
                             let background =
                                 seriesIndex === 0 ? 'background-color: #50af51' : 'background-color:#EB504E';
                             return `<div style='padding: 5px; ${background}'> ${return_value}  </div>`;
@@ -61,15 +50,15 @@ export default function PieChartForCount(){
                 },
                 series: [
                     Math.round
-                        (menuData.boysCount)
+                        (menuData[0].boysCount)
                     ,
-                    Math.round(menuData.girlsCount)
+                    Math.round(menuData[0].girlsCount)
                 ]
             };
             setPieChartData(data);
             setDataSetStatus(true);
         }
-    }, [menuData]);
+    }, []);
      
     return(
         <div> <Card className=" rounded p-2 md:m-0 md:m-5 md:mr-0 md:ml-0  mb-2 w-300 rounded md:mt-12">
@@ -82,7 +71,7 @@ export default function PieChartForCount(){
     
  
         {
-            (menuData?.totalCount > 0) ?
+            (menuData[0]?.totalCount > 0) ?
                 <div className="md:flex flex-row md:items-center w-full justify-center">
                     <div className="flex justify-center">
                     <Chart
@@ -98,19 +87,19 @@ export default function PieChartForCount(){
                         <div className="rounded seesionInfo flex flex-col">
                             <div className="examCountLabel w-full text-center p-2">Total</div>
                             <div className="atExamCount w-full text-center p-1">
-                                {menuData.totalCount}
+                                {menuData[0].totalCount}
                             </div>
                         </div>
                         <div className="rounded seesionInfo flex flex-col md:mb-2 md:mt-2 md:ml-0 md:mr-0 ml-2 mr-2 ">
                             <div className="examCountLabel w-full text-center p-2">Boys</div>
                             <div className="aExamCount w-full text-center p-1">
-                                {menuData.boysCount}
+                                {menuData[0].boysCount}
                             </div>
                         </div>
                         <div className="rounded seesionInfo flex flex-col">
                             <div className="examCountLabel w-full text-center p-2">Girls</div>
                             <div className="tExamCount w-full text-center p-1">
-                                {menuData.girlsCount}
+                                {menuData[0].girlsCount}
                             </div>
                         </div>
                     </div>
